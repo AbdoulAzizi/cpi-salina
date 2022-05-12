@@ -1,0 +1,78 @@
+/* ************************************************************************************************
+								Categories Page Styles
+************************************************************************************************ */
+.content_scene_cat {
+  margin-bottom: 30px; }
+  @media (max-width: 1199px) {
+    .content_scene_cat .content_scene_cat_bg {
+      padding: 10px 10px 10px 15px; } }
+  .content_scene_cat span.category-name {
+    font: 600 42px/51px "Raleway", sans-serif;
+    color: #fff;
+    margin-bottom: 12px; }
+    @media (max-width: 1199px) {
+      .content_scene_cat span.category-name {
+        font-size: 25px;
+        line-height: 30px; } }
+  .content_scene_cat p {
+    margin-bottom: 0; }
+  .content_scene_cat .content_scene {
+    color: #333333; }
+    .content_scene_cat .content_scene .cat_desc {
+      padding-top: 20px; }
+      .content_scene_cat .content_scene .cat_desc a {
+        color: #777; }
+        .content_scene_cat .content_scene .cat_desc a:hover {
+          color: #515151; }
+
+/* ************************************************************************************************
+									Sub Categories Styles
+************************************************************************************************ */
+.cat_desc {
+  margin-bottom: 30px; }
+
+.item-list {
+  padding: 70px 0 30px; }
+  .item-list .product-count {
+    display: none; }
+
+#subcategories p.subcategory-heading {
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 15px 0; }
+#subcategories ul li {
+  float: left;
+  text-align: center;
+  min-height: 290px; }
+  #subcategories ul li .subcategory-image a {
+    display: block;
+    position: relative;
+    background-color: #fff;
+    padding: 15px;
+    border-bottom: 2px solid #008bb4; }
+    #subcategories ul li .subcategory-image a img {
+      max-width: 100%;
+      vertical-align: top; }
+  #subcategories ul li .subcategory-name {
+    font: 600 14px "Raleway", sans-serif;
+    color: #0B1983;
+    text-transform: uppercase; }
+    #subcategories ul li .subcategory-name:hover {
+      color: #515151; }
+  #subcategories ul li .cat_desc {
+    display: block;
+    height: 35px;
+    overflow: hidden; }
+    #subcategories ul li .cat_desc p {
+      color: #0B1983; }
+  #subcategories ul li:hover .hover-subcat {
+    display: block;
+    height: 100%;
+    opacity: 0.7;
+    transition: height 0.5s, opacity 0.3s; }
+  #subcategories ul li h5 {
+    height: 50px; }
+  #subcategories ul li p {
+    margin: 0; }
+
+/*# sourceMappingURL=category.css.map */

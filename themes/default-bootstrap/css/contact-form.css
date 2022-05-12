@@ -1,0 +1,152 @@
+/**************************************************************************
+					Contact Page Styles
+**************************************************************************/
+.contact-title {
+  color: #fff;
+  position: absolute;
+  top: 25%;
+  border: none;
+  font-size: 26px; }
+  .contact-title i {
+    font-size: 23px;
+    color: #c0c0c0;
+    padding: 0 8px 0 0; }
+
+.contact-form-box {
+  margin-bottom: 100px; }
+  .contact-form-box label {
+    margin: 0 0 6px 0;
+    display: none; }
+  .contact-form-box .page-subheading {
+    padding-left: 0px;
+    border: none;
+    margin-bottom: 0; }
+  .contact-form-box #desc_contact0 {
+    display: none; }
+  .contact-form-box .form-group {
+    margin-bottom: 7px; }
+  .contact-form-box textarea {
+    height: 310px; }
+  .contact-form-box .submit {
+    margin-top: 13px; }
+  .contact-form-box select.form-control {
+    width: 100%; }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .contact-form-box div.uploader span.filename {
+      width: 114px; } }
+  .contact-form-box ::-webkit-input-placeholder {
+    font-style: italic;
+    color: #008bb4; }
+  .contact-form-box :-moz-placeholder {
+    /* Firefox 18- */
+    font-style: italic;
+    color: #008bb4; }
+  .contact-form-box ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-style: italic;
+    color: #008bb4; }
+  .contact-form-box :-ms-input-placeholder {
+    font-style: italic;
+    color: #008bb4; }
+
+.section-contact-map {
+  min-height: 400px;
+  margin-bottom: 0;
+  /*tab*/ }
+  .section-contact-map .nav-tabs {
+    border-bottom: none;
+    margin-top: -38px; }
+    .section-contact-map .nav-tabs > li > a {
+      border: none;
+      margin: 0;
+      padding: 10px 20px;
+      background: #e3e3e3; }
+      @media (max-width: 480px) {
+        .section-contact-map .nav-tabs > li > a {
+          padding: 11px 10px;
+          font-size: 12px; } }
+    .section-contact-map .nav-tabs > li.active > a,
+    .section-contact-map .nav-tabs > li:hover > a {
+      border: none;
+      color: #0B1983;
+      background: #efefef; }
+  .section-contact-map .tab-content {
+    margin-top: 0px; }
+  .section-contact-map .contact-infos a {
+    color: #0b1983 !important; }
+  .section-contact-map .contact-infos p {
+    font-family: "Raleway", sans-serif;
+    color: #0B1983;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px; }
+  .section-contact-map .contact-infos .contact-bloc {
+    display: block;
+    margin-bottom: 25px;
+    padding-top: 50px;
+    position: relative; }
+    .section-contact-map .contact-infos .contact-bloc:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      top: 0;
+      left: 50%;
+      margin-left: -20px;
+      background: url(../img/icon/ico-contact.png) no-repeat; }
+  .section-contact-map .contact-infos .contact-adress {
+    margin-top: 50px; }
+  .section-contact-map .contact-infos .contact-tel {
+    color: #0b1983 !important; }
+    .section-contact-map .contact-infos .contact-tel:before {
+      background-position: 0 -45px; }
+    .section-contact-map .contact-infos .contact-tel a {
+      color: #0b1983 !important; }
+  .section-contact-map .contact-infos .contact-fax:before {
+    background-position: 0 -95px; }
+  .section-contact-map .contact-infos .contact-email {
+    display: block;
+    margin-bottom: 25px;
+    padding-top: 50px;
+    position: relative;
+    color: #0b1983 !important; }
+    .section-contact-map .contact-infos .contact-email:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 32px;
+      width: 32px;
+      top: 0;
+      left: 50%;
+      margin-left: -20px;
+      background: url(../img/icon/ico-email.png) no-repeat; }
+    .section-contact-map .contact-infos .contact-email a {
+      color: #0b1983 !important; }
+  .section-contact-map .contact-infos .contact-link {
+    display: block;
+    margin-bottom: 50px;
+    position: relative;
+    color: #0b1983 !important; }
+    .section-contact-map .contact-infos .contact-link a {
+      color: #0b1983 !important; }
+    .section-contact-map .contact-infos .contact-link img {
+      width: 24px;
+      cursor: pointer; }
+  .section-contact-map .contact-infos iframe {
+    width: 100%;
+    min-height: 400px;
+    margin: 0;
+    padding: 0; }
+
+#uniform-id_contact span {
+  display: none; }
+
+#map {
+  pointer-events: none; }
+
+#contact .link-ft {
+  color: #0b1983 !important; }
+
+/*# sourceMappingURL=contact-form.css.map */

@@ -1,0 +1,8 @@
+#block_top_menu {
+  padding-top: 35px; }
+  @media (max-width: 767px) {
+    #block_top_menu {
+      padding-left: 0;
+      padding-right: 0; } }
+
+/*# sourceMappingURL=blocktopmenu.css.map */

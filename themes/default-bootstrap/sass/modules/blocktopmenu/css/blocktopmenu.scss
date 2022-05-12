@@ -1,0 +1,9 @@
+@import "compass";
+@import "theme_variables";
+#block_top_menu {
+	padding-top: 35px;
+	@media (max-width: $screen-xs-max) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

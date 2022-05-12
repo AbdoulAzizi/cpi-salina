@@ -1,0 +1,56 @@
+.shop-phone {
+  float: right;
+  padding: 9px 0 10px;
+  line-height: 18px; }
+  .shop-phone span {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff; }
+  .shop-phone i {
+    font-size: 21px;
+    line-height: 21px;
+    color: #fff;
+    padding-right: 7px; }
+  .shop-phone strong {
+    color: #fff; }
+
+#contact-link {
+  float: right; }
+  @media (max-width: 479px) {
+    #contact-link {
+      text-align: center; } }
+  #contact-link a {
+    display: block;
+    color: #fff;
+    padding: 9px 10px 11px 10px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-right: 5px;
+    text-transform: uppercase; }
+    @media (max-width: 479px) {
+      #contact-link a {
+        font-size: 11px;
+        padding-left: 5px;
+        padding-right: 5px; } }
+    #contact-link a:hover, #contact-link a.active {
+      font-weight: bold; }
+
+@media (max-width: 767px) {
+  #contact_block {
+    margin-bottom: 20px; } }
+#contact_block .label {
+  display: none; }
+#contact_block .block_content {
+  color: #888888; }
+#contact_block p {
+  margin-bottom: 4px; }
+#contact_block p.tel {
+  font: 400 17px/21px "Roboto", sans-serif;
+  color: #333;
+  margin-bottom: 6px; }
+  #contact_block p.tel i {
+    font-size: 25px;
+    vertical-align: -2px;
+    padding-right: 10px; }
+
+/*# sourceMappingURL=blockcontact.css.map */
