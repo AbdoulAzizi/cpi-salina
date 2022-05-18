@@ -1,10 +1,16 @@
 #search_block_top {
-  padding-top: 50px; }
+  /* padding-top: 50px; */
+  /* padding-top: 50px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  float: right;
+
+}
   #search_block_top #searchbox {
     float: left;
     width: 100%; }
   #search_block_top .btn.button-search {
-    background: #0B1983;
+    background: #ff7500;
     display: block;
     position: absolute;
     top: 0;

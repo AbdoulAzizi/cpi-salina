@@ -23,6 +23,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 <!-- Block search module TOP -->
+{if isset($smarty.get.modetest) && $smarty.get.modetest==1}
 <div id="search_block_top" class="col-sm-4 clearfix">
 	<form id="searchbox" method="get" action="{$link->getPageLink('search', null, null, null, false, null, true)|escape:'html':'UTF-8'}" >
 		<input type="hidden" name="controller" value="search" />
@@ -34,4 +35,5 @@
 		</button>
 	</form>
 </div>
+{/if}
 <!-- /Block search module TOP -->

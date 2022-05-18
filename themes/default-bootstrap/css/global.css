@@ -5700,7 +5700,7 @@ a:hover {
 
 @media only screen and (min-width: 1200px) {
   .container {
-    padding-left: 0;
+    /* padding-left: 0; */
     padding-right: 0; } }
 body {
   min-width: 320px;
@@ -6610,6 +6610,11 @@ section {
       top: -12px;
       left: 50%;
       margin-left: -32px; }
+.services-home ul li.search .item:hover {
+  border: 1px solid #0C1983;
+  background: #0C1983;
+  color: #fff; 
+}
 
 .carousel-marques {
   display: block;

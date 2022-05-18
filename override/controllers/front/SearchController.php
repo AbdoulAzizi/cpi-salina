@@ -47,15 +47,6 @@ class SearchControllerCore extends FrontController
             $this->display_footer = false;
         }
     }
-    public function hookDisplayHome($params) {
-        // $this->smarty->assign(array(
-        //     'search_query' => (string)Tools::getValue('search_query'),
-        //     'search_tag' => (string)Tools::getValue('search_tag'),
-        //     'instant_search' => (bool)Configuration::get('PS_INSTANT_SEARCH'),
-        // ));
-        // return $this->display(__FILE__, 'views/templates/hook/home.tpl');
-    }
-    
 
     /**
      * Assign template vars related to page content
@@ -112,6 +103,28 @@ class SearchControllerCore extends FrontController
                 }
             }
 
+            // get blog articles matching the query from database
+            $liste_news_matching_query = NewsClass::getListe((int)$this->context->language->id,
+										1,
+										0,
+										$this->p,
+										$this->n,
+										'n.`date`',
+										'desc',
+										null,
+										null,
+										null,
+										0,
+										(int)Configuration::get('prestablog_news_title_length'),
+										(int)Configuration::get('prestablog_news_intro_length'),
+                                        $query);
+         
+            $categories = Search::SearchCategory((int)$this->context->language->id, $query, $this->p, $this->n);
+
+            // get cms pages and cms categories matching the query from database
+            $liste_cms_matching_query = Search::SearchCMSPage((int)$this->context->language->id, $query,$this->p,$this->n);
+            
+
             Hook::exec('actionSearch', array('expr' => $query, 'total' => $search['total']));
             $nbProducts = $search['total'];
             $this->pagination($nbProducts);
@@ -121,6 +134,9 @@ class SearchControllerCore extends FrontController
             $this->context->smarty->assign(array(
                 'products' => $search['result'], // DEPRECATED (since to 1.4), not use this: conflict with block_cart module
                 'search_products' => $search['result'],
+                'categories' => $categories,
+                'liste_news_matching_query' => $liste_news_matching_query? $liste_news_matching_query : '',
+                'liste_cms_matching_query' => $liste_cms_matching_query? $liste_cms_matching_query : '',
                 'nbProducts' => $search['total'],
                 'search_query' => $original_query,
                 'homeSize' => Image::getSize(ImageType::getFormatedName('home'))));
@@ -150,6 +166,36 @@ class SearchControllerCore extends FrontController
         $this->setTemplate(_PS_THEME_DIR_.'search.tpl');
     }
 
+    // getArticlesMatchingQuery function
+    // get blog articles matching the query from database
+    function getArticlesMatchingQuery($query) {
+        $articles_matching_query = array();
+        $sql = 'SELECT pnl.*, pn.date FROM '._DB_PREFIX_.'ps_prestablog_news_lang pnl 
+        INNER JOIN '._DB_PREFIX_.'ps_prestablog_news pn ON pnl.id_prestablog_news = pn.id_prestablog_news 
+        WHERE pnl.title LIKE "%'.$query.'%" OR pnl.id_prestablog_news LIKE "%'.$query.'%" OR pnl.content LIKE "%'.$query.'%" 
+        AND pnl.id_lang = '.$this->context->language->id;
+        
+        $result = Db::getInstance()->executeS($sql);
+    
+        if ($result) {
+            foreach ($result as $article) {
+                $articles_matching_query[] = array(
+                    'id_prestablog_news' => $article['id_prestablog_news'],
+                    'link_rewrite' => $article['link_rewrite'],
+                    'title' => $article['title'],
+                    'image' => $this->context->link->getImageLink($article['link_rewrite'], $article['id_image'], 'medium_default'),
+                    'price' => $article['price'],
+                    'price_without_reduction' => $article['price_without_reduction'],
+                    'reduction' => $article['reduction'],
+                    'new' => $article['new'],
+                    'category' => $article['category'],
+                    'description' => $article['content']
+                );
+            }
+        }
+        return $articles_matching_query;
+    }
+
     public function displayHeader($display = true)
     {
         if (!$this->instant_search && !$this->ajax_search) {
@@ -169,9 +215,10 @@ class SearchControllerCore extends FrontController
     public function setMedia()
     {
         parent::setMedia();
-
+        
         if (!$this->instant_search && !$this->ajax_search) {
             $this->addCSS(_THEME_CSS_DIR_.'product_list.css');
+            $this->addCSS(_THEME_CSS_DIR_.'category.css');
         }
     }
 }
