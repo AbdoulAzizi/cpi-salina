@@ -236,6 +236,11 @@
                 </div>
             {/if}
 
+            <!-- if no results -->
+            {if !$liste_news_matching_query  && !$liste_cms_matching_query && !$search_products && !$categories}
+                <div class="products_results container"><h3>{l s='Aucun résultat ne correspond à votre recherche'}</h3> </div>
+            {/if}
+
         {/if}
      </div>
 
