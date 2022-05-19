@@ -87,7 +87,7 @@
             {* {$categories|@var_dump} *}
             {if isset($categories) && $categories}
                 <div class="products_results"><h3>{l s='Catégories'}</h3> </div>
-                    <div class=" item-list">
+                    <div class="item-list">
                         <div class="container">
                             {if isset($categories)}
                                 <div id="subcategories">
