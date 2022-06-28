@@ -102,6 +102,17 @@ class SearchControllerCore extends FrontController
                     $product['link'] .= (strpos($product['link'], '?') === false ? '?' : '&').'search_query='.urlencode($query).'&results='.(int)$search['total'];
                 }
             }
+            // var_dump($query);exit;
+            // get products from SearchProducts function
+            $searchProducts = Search::SearchProducts($this->context->language->id, $query, $this->p, $this->n, $this->orderBy, $this->orderWay);
+
+            // add to search results products from SearchProducts function
+            if (is_array($searchProducts['result'])) {
+                $search['result'] = array_merge($search['result'], $searchProducts['result']);
+            }
+            
+            // delete duplicate products
+            $search['result'] = array_unique($search['result'], SORT_REGULAR);
 
             // get blog articles matching the query from database
             $liste_news_matching_query = NewsClass::getListe((int)$this->context->language->id,
@@ -123,7 +134,12 @@ class SearchControllerCore extends FrontController
 
             // get cms pages and cms categories matching the query from database
             $liste_cms_matching_query = Search::SearchCMSPage((int)$this->context->language->id, $query,$this->p,$this->n);
-            
+
+            // get catalogues matching the query from database
+            // $liste_catalogues_matching_query = Search::SearchCatalogues((int)$this->context->language->id, $query,$this->p,$this->n);
+
+            // get static pages matching the query from database
+            $liste_static_matching_query = Search::SearchStaticPages((int)$this->context->language->id, $query,$this->p,$this->n);            
 
             Hook::exec('actionSearch', array('expr' => $query, 'total' => $search['total']));
             $nbProducts = $search['total'];
@@ -133,7 +149,9 @@ class SearchControllerCore extends FrontController
 
             $this->context->smarty->assign(array(
                 'products' => $search['result'], // DEPRECATED (since to 1.4), not use this: conflict with block_cart module
-                'search_products' => $search['result'],
+                'search_products' =>  $search['result'],
+                // 'liste_catalogues_matching_query' => $liste_catalogues_matching_query,
+                'liste_static_matching_query' => $liste_static_matching_query,
                 'categories' => $categories,
                 'liste_news_matching_query' => $liste_news_matching_query? $liste_news_matching_query : '',
                 'liste_cms_matching_query' => $liste_cms_matching_query? $liste_cms_matching_query : '',

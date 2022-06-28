@@ -198,6 +198,32 @@
             </div> *}
             {/if}
 
+            {if isset($liste_catalogues_matching_query) && $liste_catalogues_matching_query}
+                <div class="container">
+                    <div class="products_results"><h3>{l s='Catalogues'}</h3> </div>
+                    {* {include file="/modules/prestablog/views/templates/front/default_page-all.tpl" catalogues=$liste_catalogues_matching_query} *}
+                    {* {hook h='search_hook' mod='prestablog' catalogues=$liste_catalogues_matching_query} *}
+                    {* {include hook h='displayLeftColumn' mod='prestablog' catalogues=$liste_catalogues_matching_query} *}
+                    {assign var='catalogues' value=$liste_catalogues_matching_query}
+                    {if sizeof($catalogues)}
+                        <div class="clearfix container">
+                            <div class="row">
+                                <ul id="blog_list" class="col-md-10">
+                                    {foreach from=$catalogues item=catalogue_item name=CatalogueName}
+                                        <li class="row">
+                                            <a href="{$catalogue_item.link|escape:'htmlall':'UTF-8'}" class="product_img_link" title="{$catalogue_item.title|escape:'htmlall':'UTF-8'}">
+                                                {* <img src="{$prestablog_theme_upimg|escape:'html':'UTF-8'}thumb_{$catalogue_item.id_prestablog_catalogue|intval}.jpg?{$md5pic|escape:'htmlall':'UTF-8'}" alt="{$catalogue_item.title|escape:'htmlall':'UTF-8'}" /> *}
+                                            {$catalogue_item.title|escape:'htmlall':'UTF-8'}
+                                            </a>
+                                        </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        </div>
+                    {/if}
+                </div>
+            {/if}
+
 
             {if isset($liste_cms_matching_query) && $liste_cms_matching_query}
                 <div class="products_results container"><h3>{l s='Pages CMS'}</h3> </div>
@@ -213,6 +239,32 @@
                                             <div class="item">
                                             <span class="ico"></span>
                                                 <span> {$cms_item.meta_title|escape:'htmlall':'UTF-8'}</span>
+                                            </div>
+                                        </li>
+                                        </a>
+                                    {/foreach}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            {/if}
+
+            {if isset($liste_static_matching_query) && $liste_static_matching_query}
+                <div class="products_results container"><h3>{l s='Pages'}</h3> </div>
+                    <section class="services-actus">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 services-home">
+                                    {* <h2 class="border-dark">Nos <strong>services</strong></h2> *}
+                                    <ul class="row">
+                                    {foreach from=$liste_static_matching_query item=static_item name=StaticName}
+                                    <a href="{$static_item.link_rewrite|escape:'htmlall':'UTF-8'}" title="{$static_item.meta_title|escape:'htmlall':'UTF-8'}">
+                                        <li class="col-md-6 search">
+                                            <div class="item">
+                                            <span class="ico"></span>
+                                                <span> {$static_item.meta_title|escape:'htmlall':'UTF-8'}</span>
                                             </div>
                                         </li>
                                         </a>

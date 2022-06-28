@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>staticpagessearch</name>
+	<displayName><![CDATA[Static Pages Search]]></displayName>
+	<version><![CDATA[1.0.0]]></version>
+	<description><![CDATA[installs Static Pages Search]]></description>
+	<author><![CDATA[WOBY WEB]]></author>
+	<tab><![CDATA[search_filter]]></tab>
+	<confirmUninstall><![CDATA[Are you sure you want to uninstall?]]></confirmUninstall>
+	<is_configurable>0</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
